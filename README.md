@@ -7,4 +7,9 @@ IT asset management web app that uses Python Flask and PostgreSQL.
 &ensp; a. sudo apt-get install python3 postgresql  
 &ensp; b. sudo apt install python3-pip
 &ensp; c. pip3 install flask flask-session psycopg2-binary ldap3  
-
+  
+### 2. Set up PostgreSQL
+&ensp; a. sudo -i -u postgres psql  
+&ensp; b. \password postgres (Enter new password)  
+&ensp; c. Change the PostgreSQL password in inventory.conf to match the new one specified.  
+&ensp; d. Run init.py  
