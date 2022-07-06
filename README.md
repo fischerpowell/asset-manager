@@ -21,6 +21,6 @@ IT asset management web app that uses Python Flask and PostgreSQL.
 
 ### 4. Configure LDAP and Flask
 &ensp; a. Open inventory.conf in a text editor  
-&ensp; b. Change auth_type to "ldap"
+&ensp; b. Change auth_type to "ldap"  
 &ensp; c. Change Flask secret key to a secure string.  
 &ensp; d. Configure LDAP settings with your own server specifications.  
