@@ -14,12 +14,12 @@
             <input type='text' placeholder='Model' name='model' value='{{old_model}}' required>
             <select name='category'>
                 {% for option in devicetypelist %}
-                    <option value={{option}}>{{option}}</option>
+                    <option value='{{option}}'>{{option}}</option>
                 {% endfor %}
             </select>
             <select name='department'>
                 {% for option in devicedepartmentlist %}
-                    <option value={{option}}>{{option}}</option>
+                    <option value='{{option}}'>{{option}}</option>
                 {% endfor %}
             </select>
             <label><b>Date Purchased:</b></label>
