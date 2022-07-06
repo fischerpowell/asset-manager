@@ -24,3 +24,7 @@ IT asset management web app that uses Python Flask, PostgreSQL, and LDAP authent
 &ensp; b. Change auth_type to "ldap"  
 &ensp; c. Change Flask secret key to a secure string.  
 &ensp; d. Configure LDAP settings with your own server specifications.  
+  
+### 5. Moving Forward
+&ensp; a. A postgres user with SELECT, INSERT, UPDATE, DELETE on database tables should be created and used for all app functions.  
+&ensp; b. Before populating the database, inventory form dropdown options should be added by logging in as an admin and navigating to the "Dropdowns" Panel.
