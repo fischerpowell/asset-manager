@@ -16,5 +16,5 @@ IT asset management web app that uses Python Flask and PostgreSQL.
 
 ### 2. Test the App
 &ensp; a. Run app.py  
-&ensp; a. Login with username: "admin" and password: "admin".
+&ensp; a. Login with username: "admin" and password: "admin".  
 &emsp; By default, authentication mode is in "setup". A normal user can be tested with username: "user" and password "password".
