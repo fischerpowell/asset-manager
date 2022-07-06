@@ -13,8 +13,14 @@ IT asset management web app that uses Python Flask and PostgreSQL.
 &ensp; b. \password postgres (Enter new password)  
 &ensp; c. Change the PostgreSQL password in inventory.conf to match the new one specified.  
 &ensp; d. Run init.py  
-
-### 2. Test the App
+  
+### 3. Test the App
 &ensp; a. Run app.py  
 &ensp; a. Login with username: "admin" and password: "admin".  
 &emsp; By default, authentication mode is in "setup". A normal user can be tested with username: "user" and password "password".
+
+### 4. Configure LDAP and Flask
+&ensp; a. Open inventory.conf in a text editor  
+&ensp; b. Change auth_type to "ldap"
+&ensp; c. Change Flask secret key to a secure string.  
+&ensp; d. Configure LDAP settings with your own server specifications.  
