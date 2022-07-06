@@ -1,0 +1,35 @@
+<html>
+<div class={{view_style}}>
+{% include "./header.html" %}
+<div class='pagelabel'>
+    <h2><i class="bi bi-plus-circle" style="margin-right:5px;padding-left:4px;font-size: 27px;"></i>Add Inventory Record</h2>
+    <hr>
+</div>
+<body class={{view_style}}>
+<div class='page_form'><form action='/inventory/add-record' method='post'>
+        <div>
+            <input type='number' placeholder='Barcode' min='0' name='barcode'  max='10000' required>
+            <input type='text' placeholder='Serial Number' name='serial'>
+            <input type='text' placeholder='Model' name='model' required>
+            <select name='category'>
+                {% for option in devicetypelist %}
+                    <option value={{option}}>{{option}}</option>
+                {% endfor %}
+            </select>
+            <select name='department'>
+                {% for option in devicedepartmentlist %}
+                    <option value={{option}}>{{option}}</option>
+                {% endfor %}
+            </select>
+            <label><b>Date Purchased:</b></label>
+            <input type='date' name='date_purchased'>
+            <label><b>Date Retired:</b></label>
+            <input type='date' name='date_retired'>
+        </div>
+        <input type='submit' class='btn btn-outline-dark btn-sm' value='Add'>
+        <a href='{{last_inv_page}}'><input type='button' class='btn btn-outline-dark btn-sm' value='Cancel' /></a>
+    </form>
+  </div>    
+  </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html> 
+<div class={{view_style}}>
+{% include "./header.html" %}
+    <div class='pagelabel'>
+        <h2><i class="bi bi-pencil-square" style="margin-right:5px;padding-left:4px;"></i>Edit Hostname</h2>
+        <hr>
+    </div>
+    <body class={{view_style}}>
+    <div class='page_form'>
+        <form action='/hostnames/edit/{{old_hostname}}' method='post'>
+        <div>
+            <input type='text' name='hostname' placeholder='Hostname' maxlength='20' value={{old_hostname}} required>
+            <input type='text' name='description' placeholder='Description' value='{{old_description}}' required>
+            {% if old_active == True %}
+            <input name='active' class="form-check-input" type="checkbox" value="true" id="flexCheckChecked" checked>
+            <label class="form-check-label" for="flexCheckChecked"><b>Active</b></label>
+            {% else %}
+            <input name='active' class="form-check-input" type="checkbox" value="true" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault"><b>Active</b></label>
+            {% endif %}
+        </div>
+        <input type='submit' value='Save' class='btn btn-outline-dark btn-sm'>
+        <a href='/hostnames/remove/{{old_hostname}}'><input type='button' class='btn btn-outline-dark btn-sm' value='Remove' /></a>
+        <a href='{{last_hostnames_page}}'><input type='button' class='btn btn-outline-dark btn-sm' value='Cancel' /></a>
+    </form>
+</div>
+    </body>
+</div>
+</html>

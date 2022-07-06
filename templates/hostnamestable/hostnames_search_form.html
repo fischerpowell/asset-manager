@@ -1,0 +1,25 @@
+<html>
+<div class={{view_style}}>
+{% include "./header.html" %}
+<div class='pagelabel'>
+    <h2><i class="bi bi-search" style="margin-right:5px;padding-left:4px;font-size:27px;"></i>Search Hostnames</h2>
+    <hr>
+</div>
+<body class={{view_style}}>
+<div class='page_form'>   
+<form action='/hostnames/search' method='POST'>
+        <div>
+            <label><b>Search by:</b></label>
+            <select name='search_category'>
+                <option value='hostname'>Hostname</option>
+                <option value='description'>Description</option>
+            </select>
+            <input type='text' placeholder='Criteria' min='0' name='criteria' maxlength='50' required>
+        </div>
+        <input type='submit' value='Search' class='btn btn-outline-dark btn-sm'>
+        <a href='{{last_hostnames_page}}'><input type='button' class='btn btn-outline-dark btn-sm' value='Cancel' /></a>
+    </form>
+</div> 
+</body>
+</div>
+</html>

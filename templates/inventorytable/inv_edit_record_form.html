@@ -1,0 +1,38 @@
+<html>
+<div class={{view_style}}>
+{% include "./header.html" %}
+<div class='pagelabel'>
+    <h2><i class="bi bi-pencil-square" style="margin-right:5px;padding-left:4px;"></i>Edit Inventory Record</h2>
+    <hr>
+</div>
+<body class={{view_style}}>
+<div class='page_form'>    
+<form action='/inventory/edit-record/{{old_barcode}}' method='post'>
+        <div>
+            <input type='number' placeholder='Barcode' min='0' name='barcode' max='10000' value={{old_barcode}} required>
+            <input type='text' placeholder='Serial Number' name='serial' value='{{old_serial}}'>
+            <input type='text' placeholder='Model' name='model' value='{{old_model}}' required>
+            <select name='category'>
+                {% for option in devicetypelist %}
+                    <option value={{option}}>{{option}}</option>
+                {% endfor %}
+            </select>
+            <select name='department'>
+                {% for option in devicedepartmentlist %}
+                    <option value={{option}}>{{option}}</option>
+                {% endfor %}
+            </select>
+            <label><b>Date Purchased:</b></label>
+            <input type='date' name='date_purchased' value={{old_datepurchased}}>
+            <label><b>Date Retired:</b></label>
+            <input type='date' name='date_retired' value={{old_dateretired}}>
+            <input class='disabled_field' type='text' placeholder='Last Hostname' name='last_hostname' value={{last_hostname}} disabled='disabled'>
+        </div>
+        <input type='submit' class='btn btn-outline-dark btn-sm' value='Save'>
+        <a href='/inventory/remove-record/{{old_barcode}}'><input type='button' class='btn btn-outline-dark btn-sm' value='Remove Record' /></a>
+        <a href='{{last_inv_page}}'><input type='button' class='btn btn-outline-dark btn-sm' value='Cancel' /></a>
+    </form>
+</div>    
+</body>
+</div>  
+</html>

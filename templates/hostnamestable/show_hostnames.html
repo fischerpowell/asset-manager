@@ -1,0 +1,68 @@
+<html>
+<div class={{view_style}}>
+{% include "./header.html" %}
+<div class='pagelabel'>
+    <h2><i class="bi bi-diagram-2" style="padding-left:4px;"></i>
+        {% if searched_table == True %}
+        Hostnames Where {{ search_category }} is {{ criteria }}
+        {% else %}
+        Hostnames
+        {% endif %}
+        </h2>
+    <hr>
+</div>
+<body class={{view_style}}>
+<div class='controls'>
+        <a href='/hostnames/add'><button class='btn btn-outline-dark'><i class="bi bi-plus-circle" style="margin-right: 5px;"></i>Add Hostname</button></a>
+        <a href='/hostnames/search'><button class='btn btn-outline-dark'><i class="bi bi-search" style="margin-right: 5px;"></i>Search</button></a>
+        <form action="/hostnames" method="post">
+        <label><b>Sort by:</b></label>  
+        <select name='sortby'>
+            {% for option in sortby_list %}
+            <option value='{{option}}'>{{option}}</option>
+            {% endfor %}
+        </select>
+        {% if active_only == 'True' %}
+        <input name='active_only' class="form-check-input" type="checkbox" value='True' id="flexCheckChecked" checked>
+        <label class="form-check-label" for="flexCheckChecked"><b>Active Only</b></label>
+        {% else %}
+        <input name='active_only' class="form-check-input" type="checkbox" value='True' id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault"><b>Active Only</b></label>
+        {% endif %}
+        <input type="submit" value='Sort' class='btn btn-outline-dark btn-sm'>
+    </form>
+    </div>
+  <table class='table'>
+        <thead>
+            <tr class='table__header'>
+                <th scope='col'>Hostname</th>
+                <th scope='col'>Description</th>
+                <th scope='col'>Active</th>
+            </tr>
+        </thead>
+        {% for name in hostnametable %}
+        <tr class='table__row'>
+            {% for cell in name %}
+            {% if loop.first %}
+            <td class='table__cell'><a class='link_cell' href='/hostnames/edit/{{cell}}' title="Edit Record">{{ cell }}</a></td>
+            {% elif loop.last %}
+                {% if cell == True %}
+                <td class='table__cell'><input name='active' class="form-check-input" type="checkbox" value="true" id="flexCheckCheckedDisabled" checked disabled>
+                {% else %}
+                <td class='table__cell'><input name='active' class="form-check-input" type="checkbox" value="true" id="flexCheckDisabled" disabled>
+                {% endif %}
+                    <div class='show_transactions_btn'>
+                        <a href='/transactions/search/hostname/{{ name[0] }}'><button class='btn btn-outline-dark btn-sm' title="View transactions for hostname.">Assignment</button></a>
+                    </div> 
+                    </td>  
+            {% else %}
+            <td class='table__cell'>{{ cell }}</td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+<b class='returned-records'>Returned Records: {{hostnametable|length}}</b>
+</div>
+</html>

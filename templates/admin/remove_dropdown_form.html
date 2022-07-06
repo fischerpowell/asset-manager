@@ -1,0 +1,18 @@
+<html>
+<div class={{view_style}}>
+{% include "./header.html" %}
+<div class='pagelabel'>
+    <h2><i class="bi bi-trash3" style="margin-right:5px;padding-left:4px;"></i>Remove Dropdown Option</h2>
+    <hr>
+</div>
+<body class={{view_style}}>
+<div class='page_form'>
+<b>Remove Option: {{old_dropdown}}? </b>
+  <form method='POST'>
+    <input type='submit' value='Remove' class = 'btn btn-outline-dark btn-sm'>
+    <input name='cancel' type='submit' value='Cancel' class = 'btn btn-outline-dark btn-sm'>
+</form>
+  </div>    
+</body>
+</div>
+</html>

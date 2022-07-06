@@ -1,0 +1,41 @@
+<html>
+<div class={{view_style}}>
+{% include "./header.html" %}
+<div class='pagelabel'>
+    <h2><i class="bi bi-plus-circle" style="margin-right:5px;padding-left:4px;font-size: 27px;"></i>Add Transactions Record</h2>
+    <hr>
+</div>
+<body class={{view_style}}>
+<div class='page_form'>
+  <form action='/transactions/add-record' method='post'>
+        <div>
+            <input type='number' placeholder='Barcode' min='0' name='barcode' max='10000' value='{{default_barcode}}' required>
+            <select name='inout'>
+                {% if default_inout == 'Out' %}
+                <option value='Out'>Out</option>
+                <option value='In'>In</option>
+                {% else %}
+                <option value='In'>In</option>
+                <option value='Out'>Out</option>
+                {% endif %}
+            </select>
+            <input type='text' placeholder='Username' value="{{default_username}}" name='username'>
+            <input type='text' placeholder='Assigned To' value='{{default_assignedto}}' name='assignedto' required>
+            <label for="hostnames"><b>Hostname:</b></label>
+            <input autocomplete='off' type="text" id="hostnames" value='{{default_hostname}}' name="hostname" list="hostnames-list"
+            pattern="{{hostnames_pattern}}">
+            <datalist id="hostnames-list">
+                {% for hostname in hostnames_list %}
+                    <option>{{ hostname }}</option>
+                {% endfor %}
+            </datalist>
+            <label><b>Date:</b></label>
+            <input type='date' name='date' required>
+        </div>
+        <input type='submit' value='Add' class='btn btn-outline-dark btn-sm'>
+        <a href='{{last_trans_page}}'><input type='button' class='btn btn-outline-dark btn-sm' value='Cancel' /></a>
+    </form>
+  </div>    
+</body>
+</div>
+</html>

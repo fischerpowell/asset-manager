@@ -1,0 +1,53 @@
+<html>
+<div class={{view_style}}>
+{% include "./header.html" %}
+<div class='pagelabel'>
+    <h2><i class="bi bi-list" style="margin-right:4px;padding-left:4px;font-size: 27px;"></i>Dropdowns</h2>
+    <hr>
+</div>
+<body class={{view_style}}>
+<div class='controls'>
+        <a href='/admin-tools/dropdowns/add'><button class='btn btn-outline-dark'><i class="bi bi-plus-circle" style="margin-right: 5px;"></i>Add Option</button></a>
+    </div>
+  <table class='table dropdowns_table'>
+        <thead>
+            <tr class='table__header'>
+                <th scope='col'>Device Types
+                    <form class="edit-column-form"" method="post">
+                        <button class='btn-sm btn-outline-dark edit-column-button' name="edit_column" value="devicetype">Remove Option</button>
+                    </form>
+                    {% if edit_column =='devicetype' %}
+                    <form class="edit-column-form" method="post">
+                        <button class='btn-sm btn-outline-dark edit-column-button' name="edit_column" value="">Cancel</button>
+                    </form>
+                    {% endif %}
+                </th>
+                <th scope='col'>Device Departments
+                    <form class="edit-column-form" method="post">
+                        <button class='btn-sm btn-outline-dark edit-column-button' name="edit_column" value="devicedepartment">Remove Option</button>
+                    </form>
+                    {% if edit_column =='devicedepartment' %}
+                    <form class="edit-column-form" method="post">
+                        <button class='btn-sm btn-outline-dark edit-column-button' name="edit_column" value="">Cancel</button>
+                    </form>
+                    {% endif %}
+                </th>
+            </tr>
+        </thead>
+        {% for item in dropdowntable %}
+        <tr class='table__row'>
+            {% for cell in item %}
+            <td class='table__cell'>{{ cell }}
+            {% if edit_column == 'devicetype' and loop.first %}
+            <a href='/admin-tools/dropdowns/remove/devicetype/{{cell}}'><i class="bi bi-trash3 remove-icon"></i></a>
+            {% elif edit_column == 'devicedepartment' and loop.last %}
+            <a href='/admin-tools/dropdowns/remove/devicedepartment/{{cell}}'><i class="bi bi-trash3 remove-icon"></i></a>
+            {% endif %}
+        </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</div>
+</html>

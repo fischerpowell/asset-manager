@@ -1,0 +1,24 @@
+<html> 
+<div class={{view_style}}>
+{% include "./header.html" %}
+<div class='pagelabel'>
+    <h2><i class="bi bi-plus-circle" style="margin-right:5px;padding-left:4px;font-size: 27px;"></i>Add Dropdown Option</h2>
+    <hr>
+</div>
+<body class={{view_style}}>
+<div class='page_form'>    
+<form action='/admin-tools/dropdowns/add' method='post'>
+        <div>
+            <label><b>Dropdown:</b></label>
+            <select name='dropdown'>
+                <option value='devicetype'>Device Type</option>
+                <option value='devicedepartment'>Device Department</option>>
+            </select>
+            <input type='text' name='newoption' placeholder='New Option' required>
+        </div>
+        <input type='submit' class='btn btn-outline-dark btn-sm'value='Add'>
+    </form>
+</div>
+</body>
+</div>
+</html>

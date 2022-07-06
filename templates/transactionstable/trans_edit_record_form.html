@@ -1,0 +1,46 @@
+<html> 
+<div class={{view_style}}>
+{% include "./header.html" %}
+    <div class='pagelabel'>
+        <h2><i class="bi bi-pencil-square" style="margin-right:5px;padding-left:4px;"></i>Edit Transactions Record</h2>
+        <hr>
+    </div>
+    <body class={{view_style}}>
+    <div class='page_form'>
+    {% if retired == True %}
+        <b style='color:red;'>NOTE: This device has been retired!</b>
+    {% endif %}
+        <form action='/transactions/edit-record/{{old_transactionid}}' method='post'>
+        <div>
+            <input class='disabled_field' type='number' placeholder='Transaction ID' min=0 name='transactionid' max='10000' value={{old_transactionid}} disabled='disabled' required>
+            <input type='number' placeholder='Barcode' min='0' name='barcode' max='10000' value={{old_barcode}} required>
+            <select name='inout'>
+                {% if old_inout == 'In' %}
+                <option value='In'>In</option>
+                <option value='Out'>Out</option>
+                {% else %}
+                <option value='Out'>Out</option>
+                <option value='In'>In</option>
+                {% endif %}
+            </select>
+            <input type='text' placeholder='Username' name='username' value='{{old_username}}'>
+            <input type='text' placeholder='Assigned To' name='assignedto' value='{{old_assignedto}}' required>
+            <label for="hostnames"><b>Hostname:</b></label>
+            <input autocomplete='off' value='{{old_hostname}}' type="text" id="hostnames" name="hostname" list="hostnames-list"
+            pattern="{{hostnames_pattern}}">
+            <datalist id="hostnames-list">
+                {% for hostname in hostnames_list %}
+                    <option>{{ hostname }}</option>
+                {% endfor %}
+            </datalist>
+            <label><b>Date:</b></label>
+            <input type='date' name='date' value={{old_date}} required>
+        </div>
+        <input type='submit' value='Save' class='btn btn-outline-dark btn-sm'>
+        <a href='/transactions/remove-record/{{old_transactionid}}'><input type='button' class='btn btn-outline-dark btn-sm' value='Remove Record' /></a>
+        <a href='{{last_trans_page}}'><input type='button' class='btn btn-outline-dark btn-sm' value='Cancel' /></a>
+    </form>
+</div>
+    </body>
+</div>
+</html>

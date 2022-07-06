@@ -1,0 +1,15 @@
+<html>
+<div class={{view_style}}>
+{% include "./header.html" %}
+<div class='pagelabel'>
+    <h2><i class="bi bi-exclamation-triangle" style="margin-right:5px;padding-left:4px;"></i>Error</h2>
+    <hr>
+</div>
+<body class={{view_style}}>
+<div class='controls'>
+<h3>{{ error }}</h3>
+    <a href ={{last_page}}><button class='btn btn-outline-dark'>Continue</button></a>
+</div>  
+</body>
+</div>
+</html>

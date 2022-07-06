@@ -1,0 +1,31 @@
+<html>
+<div class={{view_style}}>
+{% include "./header.html" %}
+<div class='pagelabel'>
+    <h2><i class="bi bi-search" style="margin-right:5px;padding-left:4px;font-size:27px;"></i>Search Inventory</h2>
+    <hr>
+</div>
+<body class={{view_style}}>
+<div class='page_form'>   
+<form action='/inventory/search' method='POST'>
+        <div>
+            <label><b>Search by:</b></label>
+            <select name='search_category'>
+                <option value='barcode'>Barcode</option>
+                <option value='serial'>Serial</option>
+                <option value='model'>Model</option>
+                <option value='category'>Category</option>
+                <option value='department'>Department</option>
+                <option value='date_purchased'>Date Purchased</option>
+                <option value='date_retired'>Date Retired</option>
+                <option value='last_hostname'>Last Hostname</option>
+            </select>
+            <input type='text' placeholder='Criteria' min='0' name='criteria' maxlength='50' required>
+        </div>
+        <input type='submit' value='Search' class='btn btn-outline-dark btn-sm'>
+        <a href='{{last_inv_page}}'><input type='button' class='btn btn-outline-dark btn-sm' value='Cancel' /></a>
+    </form>
+</div> 
+</body>
+</div>
+</html>
