@@ -1,6 +1,6 @@
 # asset-manager
-IT asset management web app that uses Python Flask, PostgreSQL, and LDAP authentication.
-!(screens/inventory.png?raw=true "Title")
+IT asset management web app that uses Python Flask, PostgreSQL, and LDAP authentication.  
+![Inventory Screen](screens/inventory.png?raw=true "Title")  
 
 
 ## How to Install
