@@ -1,6 +1,18 @@
 # asset-manager
-IT asset management web app that uses Python Flask, PostgreSQL, and LDAP authentication.  
+IT asset management web app that uses Python Flask, PostgreSQL, and LDAP authentication. 
+
+## User guide 
 ![Inventory Screen](screens/inventory.png?raw=true "Title")  
+### Inventory Table
+##### 1. Edit Record  
+&ensp; Quickly open a form to edit record information.  
+##### 2. Sort  
+&ensp; Sort each table by any desired column.    
+##### 3. Last Hostname Link  
+&ensp; Click a hostname to view specific information.  
+##### 4. Transaction History 
+&ensp; Opens transaction history for the selected device.  
+
 
 
 ## How to Install
