@@ -4,6 +4,7 @@ IT asset management web app that uses Python Flask, PostgreSQL, and LDAP authent
 ## User guide 
 ![Inventory Screen](screens/inventory.png?raw=true "Title")  
 ### Inventory Table
+&ensp; Track device details.
 ##### 1. Edit Record  
 &ensp; Quickly open a form to edit record information.  
 ##### 2. Sort  
@@ -12,9 +13,45 @@ IT asset management web app that uses Python Flask, PostgreSQL, and LDAP authent
 &ensp; Click a hostname to view specific information.  
 ##### 4. Transaction History 
 &ensp; Opens transaction history for the selected device.  
-
-
-
+  
+![Transactions Screen](screens/transactions.png?raw=true "Title")  
+### Transactions Table
+&ensp; Track device assignments and locations.
+##### 1. Barcode Link  
+&ensp; Click a barcode to view the inventory entry for that device.
+##### 2. Retired Icon  
+&ensp; Devices that have been given a "Date Retired" will show an icon next to them, indicating that the device is no longer in use.   
+##### 3. Quick Add Button  
+&ensp; Want to quickly add a similar record? This button will open an add record form with identical information in the blanks.
+  
+![Hostnames Screen](screens/hostnames.png?raw=true "Title")  
+### Hostnames Table
+&ensp; Track desktop hostnames.
+##### 1. Active / Inactive  
+&ensp; Track whether the hostname is still in use. Can only be checked or unchecked in the edit record form.
+##### 2. Assignment History Button 
+&ensp; View transaction history where the given hostname has been assigned.   
+  
+![Dropdowns Screen](screens/dropdowns.png?raw=true "Title")  
+### Dropdowns Table
+&ensp; Quickly and easily edit the dropdown lists that are used when adding an inventory record. Only accessible to admins.
+  
+![Logs Screen](screens/logs.png?raw=true "Title")  
+### Logs Table
+&ensp; View database action history, including username and timestamp of action. Also saves a copy of the previous record when editing or deleting.
+  
+![Search Screen](screens/search.png?raw=true "Title")  
+### Search
+&ensp; All tables except for dropdowns are able to be searched by any column.  
+  
+![Add Inventory Screen](screens/addrecord.png?raw=true "Title")  
+### Add Record
+&ensp; An example of an add record form. This one is for the inventory table.
+  
+![Dark Mode Screen](screens/darkmode.png?raw=true "Title")  
+### Dark Mode
+&ensp; Yes, this thing has dark mode.   
+  
 ## How to Install
 ### 1. Install dependencies:
 &ensp; a. sudo apt-get install python3 postgresql  
